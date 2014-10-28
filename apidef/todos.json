@@ -1,0 +1,6 @@
+{	
+    "id":"todos",
+	"type":"array",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"items": { "$ref": "todo.json"}            
+}
