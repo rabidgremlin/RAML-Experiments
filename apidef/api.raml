@@ -7,6 +7,8 @@ mediaType:  application/json
 schemas:
   - Todo:  !include todo.json
     Todos: !include todos.json
+    TodoCreate: !include todocreate.json
+    TodoUpdate: !include todoupdate.json
 /ping:
   description: Simple "ping" service to test connectivity.
   get:
@@ -27,6 +29,10 @@ schemas:
             schema: Todos
   post:
     description: Creates a new todo.
+    body:
+      application/json:
+        schema: TodoCreate
+        example: !include todocreate_example.json
     responses:
       201:              
   /{todoId}:
@@ -44,5 +50,10 @@ schemas:
               example: !include todo_example.json
     delete:
       description: Deletes the specified todo.
+      responses:
+        404:
+          description: The specified todo could not be found.
+        200:
+          description: The specified todo was deleted.
     put:
       description: Updates the specified todo.            
