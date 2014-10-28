@@ -1,5 +1,5 @@
 #%RAML 0.8
-title: Todo API
+title: Todo services
 version: v1
 #baseUri: http://eventlog.example.org/{version}
 baseUri: http://localhost:8080/api/
@@ -10,6 +10,7 @@ schemas:
     TodoCreate: !include todocreate.json
     TodoUpdate: !include todoupdate.json
 /ping:
+  displayName: Ping
   description: Simple "ping" service to test connectivity.
   get:
     responses:
@@ -34,7 +35,14 @@ schemas:
         schema: TodoCreate
         example: !include todocreate_example.json
     responses:
-      201:              
+      201:           
+        headers:
+          location:
+            description: "Relative URL of the created todo."
+            type: string
+            required: true
+            example: /todo/431825bc-3b80-449c-b2ab-fdc3cfdb0807
+        body: null
   /{todoId}:
     displayName: Todo
     description: A particular todo in the system.    
@@ -55,5 +63,16 @@ schemas:
           description: The specified todo could not be found.
         200:
           description: The specified todo was deleted.
+          body: null
     put:
-      description: Updates the specified todo.            
+      description: Updates the specified todo.
+      body:
+        application/json:
+          schema: TodoUpdate
+          example: !include todoupdate_example.json            
+      responses:
+        404:
+          description: The specified todo could not be found.
+        200:
+          description: The todo was update.
+          body: null   
