@@ -31,5 +31,8 @@ module.exports = function(grunt) {
 	}	
   });
   
+  //TODO work this into Grunt to build JAX-RS stubs see https://github.com/mulesoft/raml-for-jax-rs/blob/master/command-line.md
+  //java -cp raml-to-jax-rs.jar org.raml.jaxrs.codegen.core.Launcher  -basePackageName com.rabidgremlin.todo  -outputDirectory dest/java -sourceDirectory apidef
+  
   grunt.registerTask('default', ['raml2html']);
 };
