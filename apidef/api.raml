@@ -1,0 +1,48 @@
+#%RAML 0.8
+title: Todo API
+version: v1
+#baseUri: http://eventlog.example.org/{version}
+baseUri: http://localhost:8080/api/
+mediaType:  application/json
+schemas:
+  - Todo:  !include todo.json
+    Todos: !include todos.json
+/ping:
+  description: Simple "ping" service to test connectivity.
+  get:
+    responses:
+      200:
+        body:
+          text/plain:
+            example: pong                
+/todos:
+  displayName: Todos
+  description: The collection of todos in the system.  
+  get:
+    description: Gets the list of todos.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Todos
+  post:
+    description: Creates a new todo.
+    responses:
+      201:              
+  /{todoId}:
+    displayName: Todo
+    description: A particular todo in the system.    
+    get:      
+      description: Gets the specified todo.
+      responses:
+        404:
+          description: The specified todo could not be found.
+        200:
+          body:
+            application/json:
+              schema: Todo
+              example: !include todo_example.json
+    delete:
+      description: Deletes the specified todo.
+    put:
+      description: Updates the specified todo.            

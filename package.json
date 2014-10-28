@@ -1,0 +1,15 @@
+{
+  "name": "test-todo-api-schemas",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-tv4": "^0.4.1"
+  },
+  "dependencies": {
+    "tv4": "^1.1.4",
+    "tv4-formats": "^0.5.0"
+  }
+}
