@@ -1,0 +1,14 @@
+{    
+	"type":"object",
+	"$schema": "http://json-schema.org/draft-04/schema#",		
+	"properties":{				
+		"description": {
+			"type":"string",
+			"description": "The new description of the task."			
+		},
+		"completed": {
+			"type":"boolean",
+			"description": "The completed status of the task."			
+		}
+	}
+}

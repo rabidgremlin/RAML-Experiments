@@ -1,0 +1,11 @@
+{    
+	"type":"object",
+	"$schema": "http://json-schema.org/draft-04/schema#",		
+	"properties":{			
+		"description": {
+			"type":"string",
+			"description": "The description of the new task."			
+		}		
+	},
+	"required": ["description"]
+}
